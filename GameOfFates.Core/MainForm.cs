@@ -28,7 +28,8 @@
         private void MainForm_Load(object sender, EventArgs e)
         {
             backgroundSound.PlayLooping();
-            pictureBox1_Click(sender, e);
+            PictureBoxBeforeAsking(sender, e);
+            PictureBoxAfterAsking(sender, e);
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -36,22 +37,22 @@
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBoxBeforeAsking(object sender, EventArgs e)
         {
             string imagePath = System.IO.Path.Combine(Application.StartupPath, @"..\..\Resources\Images\beforeAsking.jpg");
             Image originalImage = Image.FromFile(imagePath);
             Image resizedImage = ResizeImage(originalImage, 480, 480);
 
-            pictureBox1.Image = resizedImage;
+            picBeforeAsking.Image = resizedImage;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBoxAfterAsking(object sender, EventArgs e)
         {
             string imagePath = System.IO.Path.Combine(Application.StartupPath, @"..\..\Resources\Images\afterAsking.jpg");
             Image originalImage = Image.FromFile(imagePath);
             Image resizedImage = ResizeImage(originalImage, 480, 480);
 
-            pictureBox2.Image = resizedImage;
+            picAfterAsking.Image = resizedImage;
         }
 
         private Image ResizeImage(Image image, int width, int height)
@@ -65,14 +66,49 @@
             return resizedImage;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LabelAskMe(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            predictButton.Enabled = !string.IsNullOrWhiteSpace(userInputTextBox.Text);
+        }
+
+        private void PredictClick(object sender, EventArgs e)
+        {
+            predictButton.Visible = false;
+            askMeAnythingLabel.Visible = false;
+            picAfterAsking.Visible = true;
+            resetButton.Visible = true;
+            fateOutputTextBox.Visible = true;
+            System.Media.SoundPlayer predictSound = new System.Media.SoundPlayer
+            {
+                SoundLocation = System.IO.Path.Combine(Application.StartupPath, @"..\..\Resources\Sounds\predictSound.wav")
+            };
+            predictSound.Load();
+            predictSound.Play();
+        }
+
+        private void ResetPrediction(object sender, EventArgs e)
+        {
+            predictButton.Visible = true;
+            askMeAnythingLabel.Visible = true;
+            picAfterAsking.Visible = false;
+            resetButton.Visible = false;
+            fateOutputTextBox.Text = string.Empty;
+            fateOutputTextBox.Visible = false;
+        }
+
+        private void FateAnswer_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AboutLinkLabel_Click(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Krasipeace/Game-of-Fates");
         }
     }
 }
