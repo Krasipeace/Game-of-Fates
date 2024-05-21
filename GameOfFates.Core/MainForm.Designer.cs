@@ -107,10 +107,11 @@
             this.fateOutputTextBox.ForeColor = System.Drawing.Color.Aquamarine;
             this.fateOutputTextBox.Location = new System.Drawing.Point(12, 370);
             this.fateOutputTextBox.Name = "fateOutputTextBox";
+            this.fateOutputTextBox.ReadOnly = true;
             this.fateOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.fateOutputTextBox.Size = new System.Drawing.Size(480, 41);
             this.fateOutputTextBox.TabIndex = 7;
-            this.fateOutputTextBox.Text = "test";
+            this.fateOutputTextBox.Text = "...";
             this.fateOutputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.fateOutputTextBox.Visible = false;
             this.fateOutputTextBox.TextChanged += new System.EventHandler(this.FateAnswer_TextChanged);
@@ -127,7 +128,7 @@
             this.resetButton.Text = "Reset Fate";
             this.resetButton.UseVisualStyleBackColor = false;
             this.resetButton.Visible = false;
-            this.resetButton.Click += new System.EventHandler(this.ResetPrediction);
+            this.resetButton.Click += new System.EventHandler(this.ResetFateClick);
             // 
             // linkLabel1
             // 
