@@ -121,6 +121,7 @@
     <Content Include="Resources\Icons\icon.ico" />
     <Content Include="Resources\Images\afterAsking.jpg" />
     <Content Include="Resources\Images\beforeAsking.jpg" />
+    <Content Include="Resources\Sounds\resetSound.wav" />
     <Content Include="Resources\Sounds\background.wav" />
     <Content Include="Resources\Sounds\predictSound.wav" />
   </ItemGroup>
