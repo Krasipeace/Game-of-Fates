@@ -54,7 +54,7 @@
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e) => predictButton.Enabled = !string.IsNullOrWhiteSpace(userInputTextBox.Text);
-
+        #region Buttons
         private async void PredictClick(object sender, EventArgs e)
         {
             List<string> fates = LoadAnswers();
@@ -76,6 +76,14 @@
             Random randomFate = new Random();
             int indexFates = randomFate.Next(fates.Count);
             fateOutputTextBox.Text = fates[indexFates];
+
+            labelShareTo.Visible = true;
+            buttonFacebook.Visible = true;
+            buttonLinkedIn.Visible = true;
+            buttonTwitter.Visible = true;
+            buttonInstagram.Visible = true;
+            buttonTikTok.Visible = true;
+            buttonDiscord.Visible = true;
         }
 
         private async void ResetFateClick(object sender, EventArgs e)
@@ -89,12 +97,19 @@
             labelAfterAsking.Text = string.Empty;
             labelAfterAsking.Visible = false;
             userInputTextBox.Text = string.Empty;
+            labelShareTo.Visible = false;
+            buttonFacebook.Visible = false;
+            buttonLinkedIn.Visible = false;
+            buttonTwitter.Visible = false;
+            buttonInstagram.Visible = false;
+            buttonTikTok.Visible = false;
+            buttonDiscord.Visible = false;
 
             string soundPath = @"..\..\Resources\Sounds\resetSound.wav";
             await PlaySoundEffectAsync(soundPath);
             backgroundSound.PlayLooping();
         }
-
+        #endregion
         #region Extension Methods
         private void ShareFateToSocialNetwork()
         {
@@ -163,6 +178,10 @@
         }
 
         private void LabelAskMe(object sender, EventArgs e)
+        {
+        }
+
+        private void labelShareTo_Click(object sender, EventArgs e)
         {
         }
         #endregion

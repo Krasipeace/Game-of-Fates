@@ -38,6 +38,13 @@
             this.resetButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.labelAfterAsking = new System.Windows.Forms.Label();
+            this.labelShareTo = new System.Windows.Forms.Label();
+            this.buttonFacebook = new FontAwesome.Sharp.IconButton();
+            this.buttonLinkedIn = new FontAwesome.Sharp.IconButton();
+            this.buttonTwitter = new FontAwesome.Sharp.IconButton();
+            this.buttonInstagram = new FontAwesome.Sharp.IconButton();
+            this.buttonTikTok = new FontAwesome.Sharp.IconButton();
+            this.buttonDiscord = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBeforeAsking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAfterAsking)).BeginInit();
             this.SuspendLayout();
@@ -159,12 +166,113 @@
             this.labelAfterAsking.Visible = false;
             this.labelAfterAsking.Click += new System.EventHandler(this.QuestionAfterBeingAskedLabel);
             // 
+            // labelShareTo
+            // 
+            this.labelShareTo.AutoSize = true;
+            this.labelShareTo.Location = new System.Drawing.Point(14, 550);
+            this.labelShareTo.Name = "labelShareTo";
+            this.labelShareTo.Size = new System.Drawing.Size(50, 13);
+            this.labelShareTo.TabIndex = 12;
+            this.labelShareTo.Text = "Share to:";
+            this.labelShareTo.Visible = false;
+            this.labelShareTo.Click += new System.EventHandler(this.labelShareTo_Click);
+            // 
+            // buttonFacebook
+            // 
+            this.buttonFacebook.BackColor = System.Drawing.Color.LightSlateGray;
+            this.buttonFacebook.IconChar = FontAwesome.Sharp.IconChar.Facebook;
+            this.buttonFacebook.IconColor = System.Drawing.Color.Blue;
+            this.buttonFacebook.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonFacebook.IconSize = 20;
+            this.buttonFacebook.Location = new System.Drawing.Point(15, 568);
+            this.buttonFacebook.Name = "buttonFacebook";
+            this.buttonFacebook.Size = new System.Drawing.Size(23, 23);
+            this.buttonFacebook.TabIndex = 13;
+            this.buttonFacebook.UseVisualStyleBackColor = false;
+            this.buttonFacebook.Visible = false;
+            // 
+            // buttonLinkedIn
+            // 
+            this.buttonLinkedIn.IconChar = FontAwesome.Sharp.IconChar.Linkedin;
+            this.buttonLinkedIn.IconColor = System.Drawing.Color.DodgerBlue;
+            this.buttonLinkedIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonLinkedIn.IconSize = 20;
+            this.buttonLinkedIn.Location = new System.Drawing.Point(44, 568);
+            this.buttonLinkedIn.Name = "buttonLinkedIn";
+            this.buttonLinkedIn.Size = new System.Drawing.Size(23, 23);
+            this.buttonLinkedIn.TabIndex = 14;
+            this.buttonLinkedIn.UseVisualStyleBackColor = true;
+            this.buttonLinkedIn.Visible = false;
+            // 
+            // buttonTwitter
+            // 
+            this.buttonTwitter.BackColor = System.Drawing.Color.LightSlateGray;
+            this.buttonTwitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonTwitter.ForeColor = System.Drawing.Color.Black;
+            this.buttonTwitter.IconChar = FontAwesome.Sharp.IconChar.Twitter;
+            this.buttonTwitter.IconColor = System.Drawing.Color.SkyBlue;
+            this.buttonTwitter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonTwitter.IconSize = 20;
+            this.buttonTwitter.Location = new System.Drawing.Point(73, 568);
+            this.buttonTwitter.Name = "buttonTwitter";
+            this.buttonTwitter.Size = new System.Drawing.Size(23, 23);
+            this.buttonTwitter.TabIndex = 15;
+            this.buttonTwitter.Text = "X";
+            this.buttonTwitter.UseVisualStyleBackColor = false;
+            this.buttonTwitter.Visible = false;
+            // 
+            // buttonInstagram
+            // 
+            this.buttonInstagram.IconChar = FontAwesome.Sharp.IconChar.Instagram;
+            this.buttonInstagram.IconColor = System.Drawing.Color.Brown;
+            this.buttonInstagram.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonInstagram.IconSize = 20;
+            this.buttonInstagram.Location = new System.Drawing.Point(102, 568);
+            this.buttonInstagram.Name = "buttonInstagram";
+            this.buttonInstagram.Size = new System.Drawing.Size(23, 23);
+            this.buttonInstagram.TabIndex = 16;
+            this.buttonInstagram.UseVisualStyleBackColor = true;
+            this.buttonInstagram.Visible = false;
+            // 
+            // buttonTikTok
+            // 
+            this.buttonTikTok.IconChar = FontAwesome.Sharp.IconChar.Tiktok;
+            this.buttonTikTok.IconColor = System.Drawing.Color.Black;
+            this.buttonTikTok.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonTikTok.IconSize = 20;
+            this.buttonTikTok.Location = new System.Drawing.Point(131, 568);
+            this.buttonTikTok.Name = "buttonTikTok";
+            this.buttonTikTok.Size = new System.Drawing.Size(23, 23);
+            this.buttonTikTok.TabIndex = 17;
+            this.buttonTikTok.UseVisualStyleBackColor = true;
+            this.buttonTikTok.Visible = false;
+            // 
+            // buttonDiscord
+            // 
+            this.buttonDiscord.IconChar = FontAwesome.Sharp.IconChar.Discord;
+            this.buttonDiscord.IconColor = System.Drawing.Color.DarkOrchid;
+            this.buttonDiscord.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonDiscord.IconSize = 20;
+            this.buttonDiscord.Location = new System.Drawing.Point(159, 568);
+            this.buttonDiscord.Name = "buttonDiscord";
+            this.buttonDiscord.Size = new System.Drawing.Size(23, 23);
+            this.buttonDiscord.TabIndex = 18;
+            this.buttonDiscord.UseVisualStyleBackColor = true;
+            this.buttonDiscord.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(500, 600);
+            this.Controls.Add(this.buttonDiscord);
+            this.Controls.Add(this.buttonTikTok);
+            this.Controls.Add(this.buttonInstagram);
+            this.Controls.Add(this.buttonTwitter);
+            this.Controls.Add(this.buttonLinkedIn);
+            this.Controls.Add(this.buttonFacebook);
+            this.Controls.Add(this.labelShareTo);
             this.Controls.Add(this.labelAfterAsking);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.resetButton);
@@ -196,6 +304,13 @@
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label labelAfterAsking;
+        private System.Windows.Forms.Label labelShareTo;
+        private FontAwesome.Sharp.IconButton buttonFacebook;
+        private FontAwesome.Sharp.IconButton buttonLinkedIn;
+        private FontAwesome.Sharp.IconButton buttonTwitter;
+        private FontAwesome.Sharp.IconButton buttonInstagram;
+        private FontAwesome.Sharp.IconButton buttonTikTok;
+        private FontAwesome.Sharp.IconButton buttonDiscord;
     }
 }
 
