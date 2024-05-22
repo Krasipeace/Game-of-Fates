@@ -31,6 +31,17 @@
             PictureBoxBeforeAsking(sender, e);
             PictureBoxAfterAsking(sender, e);
             predictButton.Enabled = false;
+            userInputTextBox.KeyDown += UserInputTextBox_KeyDown;
+        }
+
+        private void UserInputTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                Predict_Click(sender, e);
+            }
         }
 
         private void PictureBoxBeforeAsking(object sender, EventArgs e)
@@ -55,63 +66,50 @@
 
         private void TextBox_TextChanged(object sender, EventArgs e) => predictButton.Enabled = !string.IsNullOrWhiteSpace(userInputTextBox.Text);
         #region Buttons
-        private async void PredictClick(object sender, EventArgs e)
+        private async void Predict_Click(object sender, EventArgs e)
         {
             List<string> fates = LoadAnswers();
+            string soundPath = @"..\..\Resources\Sounds\predictSound.wav";
+            Random randomFate = new Random();
+            int indexFates = randomFate.Next(fates.Count);
 
+            fateOutputTextBox.Visible = true;
             predictButton.Visible = false;
             askMeAnythingLabel.Visible = false;
             picAfterAsking.Visible = true;
             resetButton.Visible = true;
-            fateOutputTextBox.Visible = true;
 
             labelAfterAsking.Text = userInputTextBox.Text;
             labelAfterAsking.AutoSize = true;
             ChangeLabelPosToCenter(labelAfterAsking);
             labelAfterAsking.Visible = true;
 
-            string soundPath = @"..\..\Resources\Sounds\predictSound.wav";
             await PlaySoundEffectAsync(soundPath);
-            backgroundSound.PlayLooping();
-            Random randomFate = new Random();
-            int indexFates = randomFate.Next(fates.Count);
             fateOutputTextBox.Text = fates[indexFates];
+            buttonSaveCard.Visible = true;
 
-            labelShareTo.Visible = true;
-            buttonFacebook.Visible = true;
-            buttonLinkedIn.Visible = true;
-            buttonTwitter.Visible = true;
-            buttonInstagram.Visible = true;
-            buttonTikTok.Visible = true;
-            buttonDiscord.Visible = true;
+            backgroundSound.PlayLooping();
         }
 
-        private async void ResetFateClick(object sender, EventArgs e)
+        private async void ResetFate_Click(object sender, EventArgs e)
         {
             predictButton.Visible = true;
             askMeAnythingLabel.Visible = true;
             picAfterAsking.Visible = false;
             resetButton.Visible = false;
-            fateOutputTextBox.Text = string.Empty;
+            fateOutputTextBox.Text = "Listening to the whispers of fate...";
             fateOutputTextBox.Visible = false;
             labelAfterAsking.Text = string.Empty;
             labelAfterAsking.Visible = false;
             userInputTextBox.Text = string.Empty;
-            labelShareTo.Visible = false;
-            buttonFacebook.Visible = false;
-            buttonLinkedIn.Visible = false;
-            buttonTwitter.Visible = false;
-            buttonInstagram.Visible = false;
-            buttonTikTok.Visible = false;
-            buttonDiscord.Visible = false;
+            buttonSaveCard.Visible = false;
 
             string soundPath = @"..\..\Resources\Sounds\resetSound.wav";
             await PlaySoundEffectAsync(soundPath);
             backgroundSound.PlayLooping();
         }
-        #endregion
-        #region Extension Methods
-        private void ShareFateToSocialNetwork()
+
+        private void ButtonSaveFateCard(object sender, EventArgs e)
         {
             Bitmap screenshot = new Bitmap(picAfterAsking.Width, picAfterAsking.Height);
             using (Graphics graphics = Graphics.FromImage(screenshot))
@@ -123,19 +121,14 @@
                 );
             }
 
-            string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string tempFilePath = Path.Combine(downloadsFolder, "screenshot.png");
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            string tempFilePath = Path.Combine(userFolder, "fateScreenshot.png");
             screenshot.Save(tempFilePath, ImageFormat.Png);
 
-            ShareToSocialNetwork(tempFilePath);
-
-            File.Delete(tempFilePath);
+            System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{tempFilePath}\"");
         }
-
-        private void ShareToSocialNetwork(string filePath)
-        {
-
-        }
+        #endregion
+        #region Extension Methods
 
         private async Task PlaySoundEffectAsync(string soundPath)
         {
@@ -178,10 +171,6 @@
         }
 
         private void LabelAskMe(object sender, EventArgs e)
-        {
-        }
-
-        private void labelShareTo_Click(object sender, EventArgs e)
         {
         }
         #endregion
