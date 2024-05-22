@@ -37,6 +37,7 @@
             this.fateOutputTextBox = new System.Windows.Forms.TextBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.labelAfterAsking = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBeforeAsking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAfterAsking)).BeginInit();
             this.SuspendLayout();
@@ -143,12 +144,28 @@
             this.linkLabel1.Text = "About";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AboutLinkLabel_Click);
             // 
+            // labelAfterAsking
+            // 
+            this.labelAfterAsking.AutoSize = true;
+            this.labelAfterAsking.BackColor = System.Drawing.Color.Transparent;
+            this.labelAfterAsking.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAfterAsking.ForeColor = System.Drawing.Color.Thistle;
+            this.labelAfterAsking.Location = new System.Drawing.Point(28, 39);
+            this.labelAfterAsking.Name = "labelAfterAsking";
+            this.labelAfterAsking.Size = new System.Drawing.Size(36, 42);
+            this.labelAfterAsking.TabIndex = 11;
+            this.labelAfterAsking.Text = "...";
+            this.labelAfterAsking.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelAfterAsking.Visible = false;
+            this.labelAfterAsking.Click += new System.EventHandler(this.QuestionAfterBeingAskedLabel);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(500, 600);
+            this.Controls.Add(this.labelAfterAsking);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.fateOutputTextBox);
@@ -178,6 +195,7 @@
         private System.Windows.Forms.TextBox fateOutputTextBox;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label labelAfterAsking;
     }
 }
 
