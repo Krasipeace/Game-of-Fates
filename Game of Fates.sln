@@ -5,16 +5,24 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfFates.Core", "GameOfFates.Core\GameOfFates.Core.csproj", "{9784CC3D-12BD-4227-99BC-3266E38A0E51}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GameOfFates.Setup", "GameOfFates.Setup\GameOfFates.Setup.vdproj", "{2A65E47C-AEC7-4F91-ACB7-AE13E1E5BA3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.All|Any CPU.Build.0 = Release|Any CPU
 		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9784CC3D-12BD-4227-99BC-3266E38A0E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A65E47C-AEC7-4F91-ACB7-AE13E1E5BA3E}.All|Any CPU.ActiveCfg = Debug
+		{2A65E47C-AEC7-4F91-ACB7-AE13E1E5BA3E}.Debug|Any CPU.ActiveCfg = Debug
+		{2A65E47C-AEC7-4F91-ACB7-AE13E1E5BA3E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
