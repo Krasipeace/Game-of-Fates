@@ -5,7 +5,7 @@
 
 ## Demo/Screenshots
 
-![Screenshot1](Assets\scr1.PNG)
+![Screenshot1](Assets/scr1.PNG)
 
 ### 3rd-party Resources 
 
